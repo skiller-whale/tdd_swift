@@ -1,0 +1,21 @@
+name: swift_outside_in_tdd
+
+services:
+  exercises:
+    build: .
+    volumes:
+      - ./:/outside_in_tdd
+      - swift_outside_in_build:/outside_in_tdd/.build
+    working_dir: /outside_in_tdd
+    tty: true
+    command:
+      - -lc
+      - |
+        echo 'export PS1="🐳 \[\033[1;32m\]\u@:\[\033[1;34m\]\W\[\033[0m\] \$ "' >> /root/.bashrc
+        echo 'trap "echo ‼️ You just quit the exercises terminal.; echo To get it back run: docker compose run exercises" EXIT' >> /root/.bashrc
+        echo "To run the tests:"
+        echo "  swift test"
+        exec /bin/bash -l
+
+volumes:
+  swift_outside_in_build:
