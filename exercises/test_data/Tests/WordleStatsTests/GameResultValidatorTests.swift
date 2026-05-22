@@ -19,7 +19,7 @@ import Testing
         let validation = GameResultValidator.validateGameResult(nil)
 
         #expect(!validation.valid)
-        #expect(validation.reason == "Result must be an object")
+        #expect(validation.reason == "Result must not be nil")
     }
 
     @Test func validateGameResult_RejectsResultWithMissingPlayerName() {
