@@ -1,8 +1,6 @@
 @testable import Till
 import Testing
 
-// This suite looks fairly thorough and is fully green, but it still leaves some important
-// behaviour untested. Your job in the exercise is to find those gaps with mutation testing.
 @Suite struct TillTests {
 
     let till = Till()
